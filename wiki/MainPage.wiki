@@ -1,3 +1,4 @@
+#labels Featured
 =JSON Serializer=
 
 This project aims to (de)serialize Java POJO to JSON strings in GWT environment.  It can be useful in case of non Java server side programming utilizing GWT or Java non GWT-RPC server side programming.
