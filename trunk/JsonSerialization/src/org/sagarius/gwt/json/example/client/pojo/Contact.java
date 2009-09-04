@@ -1,32 +1,17 @@
 package org.sagarius.gwt.json.example.client.pojo;
 
-import javax.jdo.annotations.Embedded;
-import javax.jdo.annotations.IdGeneratorStrategy;
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.PrimaryKey;
-
 import org.sagarius.gwt.json.client.Serializable;
 
-import com.google.appengine.api.datastore.Key;
-
-@PersistenceCapable
 public class Contact implements Serializable {
-	@PrimaryKey
-	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
-	private Key refId;
-	@Persistent
-	@Embedded
+	private Long refId;
 	private Address address;
-	@Persistent
-	@Embedded
 	private PhoneNumber phoneNumber;
 
-	public Key getRefId() {
+	public Long getRefId() {
 		return refId;
 	}
 
-	public void setRefId(Key refId) {
+	public void setRefId(Long refId) {
 		this.refId = refId;
 	}
 

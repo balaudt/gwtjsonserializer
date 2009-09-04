@@ -3,34 +3,17 @@ package org.sagarius.gwt.json.example.client.pojo;
 import java.util.Date;
 import java.util.List;
 
-import javax.jdo.annotations.Extension;
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.PrimaryKey;
-
 import org.sagarius.gwt.json.client.Serializable;
 
-@PersistenceCapable
 public class School implements Serializable {
-	@PrimaryKey
-	@Persistent
-	@Extension(vendorName = "datanucleus", key = "gae.encoded-pk", value = "true")
 	protected String refIdKey;
-	@Persistent
-	@Extension(vendorName = "datanucleus", key = "gae.pk-name", value = "true")
 	protected String refId;
-	@Persistent
 	protected String schoolName;
-	@Persistent
 	protected String schoolShortName;
-	@Persistent
 	protected String schoolUrl;
-	@Persistent
 	protected int status;
 	protected List<String> gradeLevels;
-	@Persistent
 	protected List<Contact> contactInfo;
-	@Persistent
 	protected Date startDate;
 
 	public String getRefIdKey() {
