@@ -1,21 +1,11 @@
 package org.sagarius.gwt.json.example.client.pojo;
 
-import javax.jdo.annotations.EmbeddedOnly;
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
-
 import org.sagarius.gwt.json.client.Serializable;
 
-@PersistenceCapable
-@EmbeddedOnly
 public class PhoneNumber implements Serializable {
-	@Persistent
 	private String number;
-	@Persistent
 	private String ext;
-	@Persistent
 	private String type;
-	@Persistent
 	private String listedStatus;
 
 	public String getNumber() {

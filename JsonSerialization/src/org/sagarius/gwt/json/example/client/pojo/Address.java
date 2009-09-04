@@ -1,25 +1,13 @@
 package org.sagarius.gwt.json.example.client.pojo;
 
-import javax.jdo.annotations.EmbeddedOnly;
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
-
 import org.sagarius.gwt.json.client.Serializable;
 
-@PersistenceCapable
-@EmbeddedOnly
 public class Address implements Serializable {
-	@Persistent
 	private String line1;
-	@Persistent
 	private String line2;
-	@Persistent
 	private String city;
-	@Persistent
 	private String state;
-	@Persistent
 	private String country;
-	@Persistent
 	private String zipCode;
 
 	public String getLine1() {
