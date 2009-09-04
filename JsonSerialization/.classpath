@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/appengine-utils-client-1.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/appengine-api.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jdo2-api-2.3-ea.jar"/>
+	<classpathentry kind="lib" path="/home/bala/libs/flexjson_1.7/flexjson.jar"/>
+	<classpathentry kind="output" path="war/WEB-INF/classes"/>
+</classpath>
