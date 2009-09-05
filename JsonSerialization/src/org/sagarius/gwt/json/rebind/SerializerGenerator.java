@@ -88,6 +88,7 @@ public class SerializerGenerator extends Generator {
 			buffer.append("}");
 			printWriter.append(buffer.toString());
 			context.commit(logger, printWriter);
+			System.out.println(buffer.toString());
 			return packageName + "." + genClassname;
 		} catch (NotFoundException e) {
 			e.printStackTrace();
@@ -293,6 +294,18 @@ public class SerializerGenerator extends Generator {
 		buffer.append("throw new IncompatibleObjectException();");
 		buffer.append("}");
 
+		// Code to prevent circular serialisation
+		buffer.append("if(SerializerHelper.isStarted()){");
+		buffer.append("if(SerializerHelper.contains(object)){");
+		buffer.append("return JSONNull.getInstance();");
+		buffer.append("}else{");
+		buffer.append("SerializerHelper.add(object);");
+		buffer.append("}");
+		buffer.append("}else{");
+		buffer.append("SerializerHelper.setStarted(true);");
+		buffer.append("SerializerHelper.setStarter(object);");
+		buffer.append("}");
+
 		// Initialise result object
 		buffer.append("JSONObject mainResult=new JSONObject();");
 		buffer.append("JSONValue jsonValue=null;");
@@ -400,6 +413,12 @@ public class SerializerGenerator extends Generator {
 
 		// Put class type for compatibility with flex JSON [de]serialisation
 		buffer.append("mainResult.put(\"class\",new JSONString(\"" + baseType.getQualifiedSourceName() + "\"));");
+
+		// Code to prevent circular serialisation
+		buffer.append("if(SerializerHelper.getStarter().equals(object)){");
+		buffer.append("SerializerHelper.setStarter(null);");
+		buffer.append("SerializerHelper.clear();");
+		buffer.append("}");
 
 		// Return statement
 		buffer.append("return mainResult;");
